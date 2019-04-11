@@ -4,6 +4,9 @@
 
 from Tkinter import *
 from datetime import date, time, datetime
+from urllib2 import urlopen
+import base64
+import io
 import time
 
 # Initialize window
@@ -17,9 +20,19 @@ time1 = ""
 
 # Initialize widgets
 clock = Label(root, font=("arial", 42, "bold"), bg="#94d7ff", fg="black")
-clock.place(relx=0.5, rely=0.7, anchor=CENTER)
+clock.place(relx=0.5, rely=0.75, anchor=CENTER)
 current_date = Label(root, font=("arial", 21), text=date_today, bg="#94d7ff", fg="black")
-current_date.place(relx=0.5, rely=0.3, anchor=CENTER)
+current_date.place(relx=0.5, rely=0.6, anchor=CENTER)
+# Image on pre-made URL on "lh3.googleusercontent.com"
+image_url = "https://lh3.googleusercontent.com/3Ze2pRfFNWbY8kSmlAhXsOucQRzIdRVBXdGuPIWjtnG5bUZUo6P1IcFLAokeSY8c6DXLuNYtMw4Sc1AR4PfwjsioCTolXuFkYWDetfgX"
+image_byt = urlopen(image_url).read()
+image_b64 = base64.encodestring(image_byt)
+photo = PhotoImage(data=image_b64)
+# Creates a customized-blue canvas
+cv = Canvas(bg="#94d7ff", width="145", height="145")
+cv.place(relx=0.5, rely=0.3, anchor=CENTER)
+# Place the image on the canvas
+cv.create_image(0, 0, image=photo, anchor="nw")
 
 # Function for placing the window on the center of the screen
 def center_window(width=300, height=200):
