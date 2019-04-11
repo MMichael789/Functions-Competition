@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 # A program that uses Tkinter, time and datetime to show the date with a real-time clock
-# Made by Michael S David and Ethan Kissoon
+# Made by Michael S David, Ethan Kissoon and Kurt Pondevida
 
 from Tkinter import *
 from datetime import date, time, datetime
@@ -54,8 +54,10 @@ def clock_tick():
     # System time is in 24-hour time, so the following "if" series converts it to 12-hour time
     if select_time > 12:
         time2 = "%d%s PM" % (select_time - 12, sys_time[2:])
+    elif select_time == 0:
+        time2 = "%d%s AM" % (12, sys_time[2:])
     else:
-        time2 = "%s AM".format(sys_time)
+        time2 = "%s AM" % (sys_time)
 
     # If the time string has changed, update it on the GUI
     if time2 != time1:
