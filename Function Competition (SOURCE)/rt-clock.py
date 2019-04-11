@@ -6,7 +6,6 @@ from Tkinter import *
 from datetime import date, time, datetime
 from urllib2 import urlopen
 import base64
-import io
 import time
 
 # Initialize window
