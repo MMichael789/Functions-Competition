@@ -23,7 +23,7 @@ clock.place(relx=0.5, rely=0.75, anchor=CENTER)
 current_date = Label(root, font=("arial", 21), text=date_today, bg="#94d7ff", fg="black")
 current_date.place(relx=0.5, rely=0.6, anchor=CENTER)
 # Image on pre-made URL on "lh3.googleusercontent.com"
-image_url = "https://lh3.googleusercontent.com/3Ze2pRfFNWbY8kSmlAhXsOucQRzIdRVBXdGuPIWjtnG5bUZUo6P1IcFLAokeSY8c6DXLuNYtMw4Sc1AR4PfwjsioCTolXuFkYWDetfgX"
+image_url = "https://imgur.com/miCqgKM.gif"
 image_byt = urlopen(image_url).read()
 image_b64 = base64.encodestring(image_byt)
 photo = PhotoImage(data=image_b64)
